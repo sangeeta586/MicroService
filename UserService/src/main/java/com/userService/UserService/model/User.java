@@ -21,3 +21,4 @@ public class User {
     private List<Rating> ratings = new ArrayList<Rating>();
 
 }
+  

@@ -13,7 +13,7 @@ import java.util.Optional;
 public class HotelService {
 
     @Autowired
-    private HotelRepo hotelRepo;
+    private HotelRepo hotelRepo;  
 
     // Create or Save a new hotel
     public Hotel createHotel(Hotel hotel) {

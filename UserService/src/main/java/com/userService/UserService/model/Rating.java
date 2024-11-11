@@ -17,3 +17,4 @@ public class Rating {
     private String hotelId;
     private double rating;
 }
+  

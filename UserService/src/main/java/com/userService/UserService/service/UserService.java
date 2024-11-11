@@ -31,7 +31,7 @@ public class UserService {
 
     // Update an existing user
     public User updateUser(String id, User updatedUser) {
-        // Check if user exists by ID
+        // Check if user exists by ID   
         Optional<User> existingUser = userRepo.findById(id);
 
         if (existingUser.isPresent()) {

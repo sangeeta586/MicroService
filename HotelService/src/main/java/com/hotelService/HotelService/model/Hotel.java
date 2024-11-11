@@ -9,7 +9,7 @@ import org.springframework.data.mongodb.core.mapping.Document;
 @Document(value = "hotels")
 @Data
 @AllArgsConstructor
-@NoArgsConstructor
+@NoArgsConstructor   
 public class Hotel {
 
     @Id
