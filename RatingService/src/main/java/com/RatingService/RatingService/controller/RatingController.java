@@ -1,6 +1,5 @@
 package com.RatingService.RatingService.controller;
 
-
 import com.RatingService.RatingService.model.Rating;
 import com.RatingService.RatingService.service.RatingService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -9,7 +8,6 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 import java.util.Optional;
-
 
 @RestController
 @RequestMapping("/ratings")
@@ -47,4 +45,15 @@ public class RatingController {
         ratingService.deleteAllRatings();
         return ResponseEntity.noContent().build();
     }
+
+    @GetMapping("/{userId}")
+    public ResponseEntity<List<Rating>> getRatingByUserId(@PathVariable String userId){
+        return ResponseEntity.ok(ratingService.getratingByUserId(userId));
+    }
+
+    @GetMapping("/{hotelId}")
+    public ResponseEntity<List<Rating>> getRatingByHotelId(@PathVariable String hotelId){
+        return ResponseEntity.ok(ratingService.getratingByHotelId(hotelId));
+    }
 }
+

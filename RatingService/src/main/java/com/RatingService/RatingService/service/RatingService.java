@@ -42,4 +42,12 @@ public class RatingService {
     public void deleteAllRatings() {
         ratingRepository.deleteAll();
     }
+
+   public List<Rating> getratingByUserId(String userId){
+        return  ratingRepository.findByUserId(userId);
+    }
+   public List<Rating> getratingByHotelId(String hotelId){
+        return  ratingRepository.findByHotelId(hotelId);
+    }
 }
+
