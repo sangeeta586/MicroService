@@ -46,14 +46,24 @@ public class RatingController {
         return ResponseEntity.noContent().build();
     }
 
-    @GetMapping("/{userId}")
+    @GetMapping("/users/{userId}")
     public ResponseEntity<List<Rating>> getRatingByUserId(@PathVariable String userId){
         return ResponseEntity.ok(ratingService.getratingByUserId(userId));
     }
 
-    @GetMapping("/{hotelId}")
+    @GetMapping("/hotels/{hotelId}")
     public ResponseEntity<List<Rating>> getRatingByHotelId(@PathVariable String hotelId){
         return ResponseEntity.ok(ratingService.getratingByHotelId(hotelId));
+    }
+
+    @PutMapping("/update/{id}")
+    public ResponseEntity<Rating> updateRating(@PathVariable String id, @RequestBody Rating rating) {
+        return ratingService.getRatingById(id)
+                .map(existingRating -> {
+                     Rating updatedRating = ratingService.updateRating(id, rating);
+                    return ResponseEntity.ok(updatedRating);
+                })
+                .orElseGet(() -> ResponseEntity.notFound().build());
     }
 }
 

@@ -16,5 +16,6 @@ public class Rating {
     private String userId;
     private String hotelId;
     private double rating;
+    private Hotel hotel;
 }
   

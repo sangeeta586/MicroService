@@ -38,7 +38,18 @@ public class RatingService {
         return false;
     }
 
+    public Rating updateRating(String id, Rating rating) {
+       Optional<Rating> existingRatingOpt = ratingRepository.findById(id);
 
+        if (existingRatingOpt.isPresent()) {
+            Rating existingRating = existingRatingOpt.get();
+            existingRating.setHotelId(rating.getHotelId());
+            existingRating.setRating(rating.getRating());
+            existingRating.setHotel(rating.getHotel());
+            return ratingRepository.save(existingRating);
+        }
+        return null;
+    }
     public void deleteAllRatings() {
         ratingRepository.deleteAll();
     }
